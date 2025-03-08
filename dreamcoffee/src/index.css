@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*
+  font-family: "Lato", sans-serif;
+  font-family: "Noto Sans", sans-serif;
+  font-family: "Bebas Neue", sans-serif;
+*/
+
+:root {
+  --bg: hsl(210, 17%, 10%);
+  --fg: hsl(213, 5%, 92%);
+  --tr: hsla(0, 0%, 20%, 0.4);
+  --red: hsl(0, 100%, 70%);
+  --green: hsl(113, 36%, 65%);
+  --accent: hsl(220, 25%, 53%);
+}
+
+:root.light {
+  --bg: hsl(210, 17%, 98%);
+  --fg: hsl(210, 5%, 38%);
+  --tr: hsla(212, 7%, 57%, 0.5);
+  --red: hsl(353, 100%, 73%);
+  --green: hsl(75, 100%, 35%);
+  --accent: hsl(270, 45%, 64%);
+}
+
+* {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: normal;
+  font-size: 1rem;
+  user-select: none;
+  outline: none;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg);
+  color: var(--fg);
+  scrollbar-color: var(--fg) transparent;
+  scroll-behavior: smooth;
+}
+
+.svg * {
+  fill: var(--fg);
+}
+
+h1 {
+  font-size: xxx-large;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+h2 {
+  font-size: x-large;
+  font-family: "Lato", sans-serif;
+}
+
+h3 {
+  font-size: large;
+}
+
+button {
+  background-color: var(--tr);
+  color: var(--fg);
+  border: none;
+  margin: 5px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  transition: all 0.5s ease;
+}
+
+button:hover {
+  background-color: var(--accent);
+  color: var(--bg);
+}
+
+.navbar {
+  width: auto;
+  height: 50px;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  min-height: 50px;
+  max-height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.navbar * {
+  font-family: "Lato", sans-serif;
+  font-weight: bolder;
+  font-size: 1rem;
+}
+
+.navbar-button {
+  background-color: transparent;
+  color: var(--fg);
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar-button .icon {
+  margin-right: 10px;
+}
+
+.main-content {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  justify-content: center;
+  padding: 0px;
+  margin: 0px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.main-content .main-big-title {
+  font-size: 10rem;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: bolder;
+  text-shadow: 0px 0px 10px var(--tr);
+}
+
+.main-content p {
+  font-size: 1.2rem;
+  line-height: 2.2;
+  padding: 0px;
+  margin: 0px;
+  font-style: default;
+  font-family: "Lato", sans-serif;
+  font-weight: normal;
+}
+
+.navbar-title, .navbar-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.float-widget {
+  position: absolute;
+  transition: all 0.5s ease;
+  z-index: 50;
+  width: 160px;
+  height: 160px;
+  min-width: 160px;
+  min-height: 160px;
+  max-width: 160px;
+  max-height: 160px;
+  background-color: var(--tr);
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+}
+
+.float-widget .icon {
+  padding: 0px;
+  margin: 0px;
+  height: 70px;
+  width: 70px;
+  font-size: auto;
+  font-family: "Lato", sans-serif;
+  font-weight: bolder;
+}
+
+@media (min-width: 1500px) {
+  .main-content .main-big-title {
+    font-size: 10vw;
+  }
+
+  .float-widget {
+    zoom: 1.3;
+  }
+}
+
+.mobile-menu-container {
+  display: none;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70%;
+  max-width: 300px;
+  height: 100vh;
+  background-color: var(--bg);
+  backdrop-filter: blur(10px);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.burger-button, .close-menu {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-menu {
+  align-self: flex-end;
+  margin-bottom: 20px;
+}
+
+.mobile-menu .navbar-button {
+  width: 100%;
+  margin: 5px 0;
+  justify-content: flex-start;
+}
+
+@media (max-width: 900px) {
+  .navbar * {
+    font-size: 0.9rem;
+  }
+
+  .navbar-title {
+    display: none;
+  }
+
+  .navbar {
+    justify-content: right;
+  }
+  
+  .desktop-menu {
+    display: none;
+  }
+  
+  .mobile-menu-container {
+    display: block;
+  }
+}
+
