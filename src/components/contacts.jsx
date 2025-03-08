@@ -14,11 +14,6 @@ const ContactInfo = () => {
       icon: faEnvelope,
       title: "Email", 
       info: "info@dreamcoffee.ru"
-    },
-    {
-      icon: faLocationDot,
-      title: "ADDRESS",
-      info: "ул. Пушкина, д. 10, Москва"
     }
   ];
 
@@ -38,9 +33,6 @@ const ContactInfo = () => {
             icon={contact.icon}
             className="contact-icon"
           />
-          <h3 className="contact-title">
-            {contact.title}
-          </h3>
           <p className="contact-info">
             {contact.info}
           </p>
@@ -85,8 +77,8 @@ const Contacts = () => {
         <motion.h1 className="contacts-title">
           CONTACTS
         </motion.h1>
-        <ContactInfo />
         <Map />
+        <ContactInfo />
       </motion.div>
     </div>
   );

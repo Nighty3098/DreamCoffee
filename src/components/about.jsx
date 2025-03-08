@@ -23,30 +23,38 @@ export const Features = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignContent: "center", alignItems: "center", justifyContent: "center", justifyItems: "center" }}>
-      <motion.h2
+      <motion.h1
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         What Makes Us Special
-      </motion.h2>
+      </motion.h1>
 
       <div style={{ 
         display: "flex", 
         flexWrap: "wrap", 
         gap: "30px",
         justifyContent: "center",
-        maxWidth: "1200px",
-        margin: "40px auto"
+        width: "100%",
+        gap: "40px"
       }}>
         {features.map((feature, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.1, delay: 0.3 + index * 0.1 }}
+            viewport={{ 
+              once: true,
+              amount: 0.3
+            }}
+            transition={{ 
+              duration: 0.3, 
+              delay: 0.1 * index,
+              type: "spring", 
+              damping: 15 
+            }}
             style={{
               backgroundColor: "var(--tr)", 
               backdropFilter: "blur(10px)",

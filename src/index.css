@@ -1,10 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 /*
   font-family: "Lato", sans-serif;
   font-family: "Noto Sans", sans-serif;
   font-family: "Bebas Neue", sans-serif;
 */
+
+:root-dark {
+  --bg: #3d251e;
+  --fg: #d8cbc4;
+  --tr: hsla(17, 47%, 30%, 0.4);
+  --accent: #a08679;
+}
 
 :root {
   --bg: #d8cbc4;
@@ -150,7 +157,8 @@ button:hover {
   font-weight: normal;
 }
 
-.navbar-title, .navbar-buttons {
+.navbar-title,
+.navbar-buttons {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -219,7 +227,8 @@ button:hover {
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.burger-button, .close-menu {
+.burger-button,
+.close-menu {
   background-color: transparent;
   border: none;
   font-size: 1.5rem;
@@ -278,8 +287,12 @@ button:hover {
   backdrop-filter: blur(10px);
   border-radius: 12px;
   overflow: hidden;
+  height: 100%;
   transition: transform 0.3s ease;
   width: 100%;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .menu-item:hover {
@@ -290,6 +303,8 @@ button:hover {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .menu-item-title {
@@ -319,7 +334,8 @@ button:hover {
   margin: 0;
 }
 
-.show-more-button, .show-less-button {
+.show-more-button,
+.show-less-button {
   margin-top: 30px;
   padding: 12px 25px;
   font-size: 0.9rem;
@@ -331,63 +347,69 @@ button:hover {
   border: none;
 }
 
-.show-more-button:hover, .show-less-button:hover {
+.show-more-button:hover,
+.show-less-button:hover {
   transform: translateY(-3px);
 }
-
 .contacts-container {
-  padding: 50px 20px;
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 40px;
 }
 
 .contacts-title {
   color: var(--fg);
-  font-size: 48px;
   margin: 0;
 }
 
 .contact-info-container {
   width: 100%;
-  max-width: 1200px;
   display: flex;
-  justify-content: space-around;
-  gap: 30px;
-  flex-wrap: wrap;
+  flex-direction: row;
+  max-width: 1200px;
+  gap: 20px;
+  justify-content: center;
 }
 
 .contact-card {
-  background-color: var(--tr);
-  padding: 30px;
-  border-radius: 15px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  min-width: 250px;
-  border: 1px solid var(--tr);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  gap: 10px;
+  width: 100%;
+  transition: transform 0.2s ease;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
 }
 
 .contact-icon {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: var(--fg);
+  font-size: 2rem;
+  color: var(--accent);
 }
 
 .contact-title {
   color: var(--fg);
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .contact-info {
   color: var(--fg);
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 0;
   text-align: center;
+  opacity: 0.9;
+  user-select: all;
 }
 
 .map-container {
@@ -402,7 +424,6 @@ button:hover {
 .map-iframe {
   border: none;
 }
-
 
 @media (max-width: 768px) {
   .menu-title {
@@ -419,16 +440,16 @@ button:hover {
     justify-content: center;
     grid-template-columns: 90%;
   }
-  
+
   .menu-item {
     transform: scale(0.95);
     margin-bottom: -10px;
   }
-  
+
   .menu-item-image {
     height: 180px;
   }
-  
+
   .menu-item-description {
     font-size: smaller;
     padding: 0px 15px 15px 15px;
@@ -451,14 +472,13 @@ button:hover {
   .navbar {
     justify-content: right;
   }
-  
+
   .desktop-menu {
     display: none;
   }
-  
+
   .mobile-menu-container {
     display: flex;
     flex-direction: row;
   }
 }
-

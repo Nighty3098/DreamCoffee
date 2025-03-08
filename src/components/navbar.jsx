@@ -46,8 +46,8 @@ const NavBar = () => {
         type: "spring",
         stiffness: 300,
         damping: 30,
-        staggerChildren: 0.1,
-        delayChildren: 0.2
+        staggerChildren: 0.07,
+        delayChildren: 0.1
       }
     }
   };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { optimizedImage } from '../utils/imageOptimization';
 
 const MenuItem = ({ item }) => {
   return (
@@ -7,13 +8,19 @@ const MenuItem = ({ item }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false }}
-      transition={{ duration: 0.3 }}
+      transition={{ 
+        duration: 0.3,
+        type: "spring",
+        damping: 15 
+      }}
+      style={{ willChange: "transform, opacity" }}
       className="menu-item"
     >
       <img
-        src={item.image}
+        src={optimizedImage(item.image, 400)}
         alt={item.name}
         className="menu-item-image"
+        loading="lazy"
       />
       <h3 className="menu-item-title">
         {item.name}
@@ -29,20 +36,25 @@ const Menu = () => {
   const [showAll, setShowAll] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Проверка размера экрана при загрузке и изменении окна
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
     
-    // Проверка при инициализации
     checkMobile();
     
-    // Проверка при изменении размера окна
-    window.addEventListener('resize', checkMobile);
+    let timeoutId;
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(checkMobile, 100);
+    };
     
-    // Очистка слушателя событий
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   const menuItems = {
@@ -148,10 +160,8 @@ const Menu = () => {
     ]
   };
 
-  // Объединение всех элементов меню в один массив
   const allItems = [...menuItems.drinks, ...menuItems.desserts];
   
-  // Отображаемые элементы в зависимости от состояния showAll и isMobile
   const visibleItems = isMobile && !showAll ? allItems.slice(0, 3) : allItems;
 
   return (
@@ -173,9 +183,11 @@ const Menu = () => {
         </div>
         
         {isMobile && (
-          <AnimatePresence>
-            {!showAll && (
+          <AnimatePresence mode="wait">
+            {!showAll ? (
               <motion.button
+                key="show-more"
+                layoutId="toggle-button"
                 className="show-more-button"
                 onClick={() => setShowAll(true)}
                 initial={{ opacity: 0, y: 20 }}
@@ -186,9 +198,10 @@ const Menu = () => {
               >
                 SHOW {allItems.length - 3}
               </motion.button>
-            )}
-            {showAll && (
+            ) : (
               <motion.button
+                key="show-less"
+                layoutId="toggle-button"
                 className="show-less-button"
                 onClick={() => setShowAll(false)}
                 initial={{ opacity: 0, y: 20 }}
