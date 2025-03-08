@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { optimizedImage } from '../utils/imageOptimization';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 const MenuItem = ({ item }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
+      viewport={{ once: true }}
       transition={{ 
-        duration: 0.3,
-        type: "spring",
-        damping: 15 
+        duration: 0.5, 
+        ease: [0.25, 0.1, 0.25, 1.0],
       }}
       style={{ willChange: "transform, opacity" }}
       className="menu-item"
@@ -35,6 +35,8 @@ const MenuItem = ({ item }) => {
 const Menu = () => {
   const [showAll, setShowAll] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [animationParent] = useAutoAnimate();
+  const menuRef = useRef(null);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -55,6 +57,25 @@ const Menu = () => {
       window.removeEventListener('resize', handleResize);
       clearTimeout(timeoutId);
     };
+  }, []);
+
+  useEffect(() => {
+    // Когда компонент загружается в область видимости, добавляем класс для анимации
+    if (menuRef.current) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('menu-animated');
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      observer.observe(menuRef.current);
+      return () => observer.disconnect();
+    }
   }, []);
 
   const menuItems = {
@@ -167,48 +188,52 @@ const Menu = () => {
   return (
     <div className="main-content" id="menu">
       <motion.div
-        initial={{ opacity: 0, y: 100 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }}
-        transition={{ duration: 0.5 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ 
+          duration: 0.5, 
+          ease: [0.25, 0.1, 0.25, 1.0]
+        }}
         className="menu-container"
       >
-        <motion.h1>
+        <motion.h1 layout>
           MENU
         </motion.h1>
-        <div className="menu-items-grid">
+        <motion.div 
+          className="menu-items-grid"
+          layout
+        >
           {visibleItems.map((item, index) => (
             <MenuItem key={index} item={item} />
           ))}
-        </div>
+        </motion.div>
         
         {isMobile && (
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="popLayout">
             {!showAll ? (
               <motion.button
                 key="show-more"
-                layoutId="toggle-button"
                 className="show-more-button"
                 onClick={() => setShowAll(true)}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                layout
               >
                 SHOW {allItems.length - 3}
               </motion.button>
             ) : (
               <motion.button
                 key="show-less"
-                layoutId="toggle-button"
                 className="show-less-button"
                 onClick={() => setShowAll(false)}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                layout
               >
                 HIDE
               </motion.button>

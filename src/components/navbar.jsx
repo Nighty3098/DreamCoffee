@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMugHot, faHouse, faQuestion, faMessage, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,9 +13,13 @@ const NavButton = ({ icon, text, link, index }) => (
   <motion.a
     href={link}
     className="navbar-button"
-    initial={{ opacity: 0, x: 50 }}
+    initial={{ opacity: 0, x: 20 }}
     animate={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.3, delay: index * 0.1 }}
+    transition={{ 
+      duration: 0.2, 
+      delay: index * 0.05,
+      ease: "easeOut"
+    }}
   >
     <FontAwesomeIcon className="icon" icon={icon} />
     {text}
@@ -25,35 +29,33 @@ const NavButton = ({ icon, text, link, index }) => (
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const toggleMenu = useCallback(() => {
+    setMenuOpen(prev => !prev);
+  }, []);
 
   const menuVariants = {
     closed: {
       x: "100%",
-      opacity: 0,
       transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30
+        type: "tween",
+        duration: 0.3,
+        ease: [0.25, 0.1, 0.25, 1.0],
       }
     },
     open: {
       x: 0,
-      opacity: 1,
       transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-        staggerChildren: 0.07,
-        delayChildren: 0.1
+        type: "tween",
+        duration: 0.3,
+        ease: [0.25, 0.1, 0.25, 1.0],
+        staggerChildren: 0.05,
+        delayChildren: 0.05
       }
     }
   };
 
   const buttonVariants = {
-    hover: { scale: 1.1, rotate: 5 },
+    hover: { scale: 1.05 },
     tap: { scale: 0.95 }
   };
 
