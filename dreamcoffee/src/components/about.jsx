@@ -63,8 +63,8 @@ export const Features = () => {
           >
             <h3 style={{ 
               marginBottom: "15px",
-              fontSize: "1.5rem",
-              color: "var(--accent)",
+              fontSize: "2rem",
+              color: "var(--fg)",
               fontFamily: "'Bebas Neue', sans-serif"
             }}>{feature.title}</h3>
             <p style={{ 
