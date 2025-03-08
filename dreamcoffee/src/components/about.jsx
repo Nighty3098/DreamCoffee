@@ -81,7 +81,7 @@ export const Features = () => {
 
 const About = () => {
   return (
-    <div className="main-content">
+    <div className="main-content" id="about">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}

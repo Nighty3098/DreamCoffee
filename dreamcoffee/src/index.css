@@ -112,11 +112,17 @@ button:hover {
   text-transform: uppercase;
   display: flex;
   flex-direction: row;
+  text-decoration: none;
   align-items: center;
+  transition: all 0.5s ease-in-out;
 }
 
 .navbar-button .icon {
   margin-right: 10px;
+}
+
+.navbar-button:hover {
+  background-color: var(--accent);
 }
 
 .main-content {
@@ -147,7 +153,7 @@ button:hover {
 
 .main-content p {
   font-size: 1.2rem;
-  line-height: 2.2;
+  line-height: 2;
   padding: 0px;
   margin: 0px;
   font-style: default;

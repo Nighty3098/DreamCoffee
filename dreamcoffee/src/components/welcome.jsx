@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Welcome = () => {
   return (
-    <div className="main-content" style={{ height: "100vh" }}>        
+    <div className="main-content" id="welcome" style={{ height: "100vh" }}>        
         <motion.h1 className="main-big-title"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}

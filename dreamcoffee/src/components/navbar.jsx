@@ -4,13 +4,14 @@ import { faMugHot, faHouse, faQuestion, faMessage, faBars, faXmark } from "@fort
 import { motion, AnimatePresence } from "framer-motion";
 
 const navButtons = [
-  { icon: faHouse, text: "Home" },
-  { icon: faQuestion, text: "About" },
-  { icon: faMessage, text: "Contacts" }
+  { icon: faHouse, text: "Home", link: "#welcome" },
+  { icon: faQuestion, text: "About", link: "#about" },
+  { icon: faMessage, text: "Contacts", link: "#contacts" }
 ];
 
-const NavButton = ({ icon, text, index }) => (
-  <motion.button 
+const NavButton = ({ icon, text, link, index }) => (
+  <motion.a
+    href={link}
     className="navbar-button"
     initial={{ opacity: 0, x: 50 }}
     animate={{ opacity: 1, x: 0 }}
@@ -18,7 +19,7 @@ const NavButton = ({ icon, text, index }) => (
   >
     <FontAwesomeIcon className="icon" icon={icon} />
     {text}
-  </motion.button>
+  </motion.a>
 );
 
 const NavBar = () => {
@@ -57,7 +58,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar">
+    <nav className="navbar">
       <div className="navbar-title">
         <FontAwesomeIcon icon={faMugHot} />
         <p>Dream Coffee</p>
@@ -69,6 +70,7 @@ const NavBar = () => {
             key={index}
             icon={button.icon}
             text={button.text}
+            link={button.link}
           />
         ))}
       </div>
@@ -80,6 +82,7 @@ const NavBar = () => {
           variants={buttonVariants}
           whileHover="hover"
           whileTap="tap"
+          aria-label="Toggle menu"
         >
           <FontAwesomeIcon icon={faBars} />
         </motion.button>
@@ -99,6 +102,7 @@ const NavBar = () => {
                 variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
+                aria-label="Close menu"
               >
                 <FontAwesomeIcon icon={faXmark} />
               </motion.button>
@@ -108,6 +112,7 @@ const NavBar = () => {
                   key={index}
                   icon={button.icon}
                   text={button.text}
+                  link={button.link}
                   index={index}
                 />
               ))}
@@ -115,7 +120,7 @@ const NavBar = () => {
           )}
         </AnimatePresence>
       </div>
-    </div>
+    </nav>
   );
 }
 
