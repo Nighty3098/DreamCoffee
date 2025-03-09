@@ -481,6 +481,10 @@ button:hover {
     display: flex;
     flex-direction: row;
   }
+
+  .contact-card {
+    zoom: 0.75;
+  }
 }
 
 .menu-item, 
