@@ -144,6 +144,7 @@ button:hover {
   font-size: 10rem;
   padding: 0px;
   margin: 0px;
+  color: var(--fg);
   font-family: 'Bebas Neue', sans-serif;
   font-weight: bolder;
   text-shadow: 0px 0px 30px var(--tr);
@@ -459,17 +460,6 @@ hr {
   border-radius: 5px;
   border: none;
   background-color: var(--fg);
-}
-
-.big-logo {
-  font-size: 15rem;
-  width: 100%;
-  position: absolute;
-  z-index: 200;
-  left: 10%;
-  rotate: 15deg;
-  color: var(--fg);
-  z-index: inherit;
 }
 
 @media (min-width: 1500px) {
