@@ -461,6 +461,23 @@ hr {
   background-color: var(--fg);
 }
 
+.big-logo {
+  font-size: 15rem;
+  width: 100%;
+  position: absolute;
+  z-index: 200;
+  left: 10%;
+  rotate: 15deg;
+  color: var(--fg);
+  z-index: inherit;
+}
+
+@media (min-width: 1500px) {
+  .big-logo {
+    font-size: 30rem;
+  }
+}
+
 @media (max-width: 768px) {
   .menu-items-grid {
     align-items: center;
