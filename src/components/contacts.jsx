@@ -46,7 +46,7 @@ const Map = () => {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
+      viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       className="map-container"
     >
@@ -69,7 +69,7 @@ const Contacts = () => {
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 0.5 }}
         className="contacts-container"
       >
