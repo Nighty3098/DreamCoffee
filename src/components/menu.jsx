@@ -216,8 +216,8 @@ const Menu = () => {
                 key="show-more"
                 className="show-more-button"
                 onClick={() => setShowAll(true)}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
                 layout

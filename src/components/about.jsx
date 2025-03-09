@@ -34,14 +34,14 @@ export const Features = () => {
 
       <div style={{ 
         display: "flex", 
-        flexWrap: "wrap", 
-        gap: "30px",
+        flexWrap: "wrap",
         justifyContent: "center",
         width: "100%",
         gap: "40px"
       }}>
         {features.map((feature, index) => (
           <motion.div
+          className="feature-card"
             key={index}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -53,19 +53,6 @@ export const Features = () => {
               duration: 0.3, 
               delay: 0.05 * index,
               ease: "easeOut"
-            }}
-            style={{
-              backgroundColor: "var(--tr)", 
-              backdropFilter: "blur(10px)",
-              borderRadius: "20px",
-              padding: "30px",
-              width: "280px",
-              textAlign: "center",
-              transition: "all 0.3s ease",
-              border: "1px solid var(--tr)",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center"
             }}
           >
             <h3 style={{ 

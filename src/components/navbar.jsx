@@ -13,8 +13,6 @@ const NavButton = ({ icon, text, link, index }) => (
   <motion.a
     href={link}
     className="navbar-button"
-    initial={{ opacity: 0, x: 20 }}
-    animate={{ opacity: 1, x: 0 }}
     transition={{ 
       duration: 0.2, 
       delay: index * 0.05,
@@ -60,7 +58,9 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="navbar">
+    <motion.nav className="navbar" 
+    initial={{ opacity: 0, y: -60 }}
+    animate={{ opacity: 1, y: 0 }}>
       <div className="navbar-title">
         <FontAwesomeIcon icon={faMugHot} />
         <p>Dream Coffee</p>
@@ -122,7 +122,7 @@ const NavBar = () => {
           )}
         </AnimatePresence>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
 
