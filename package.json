@@ -1,8 +1,9 @@
 {
   "name": "dreamcoffee",
-  "version": "0.2.3",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@formkit/auto-animate": "^0.8.2",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
@@ -10,7 +11,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^13.2.1",
-    "framer-motion": "^12.4.10",
+    "framer-motion": "^10.16.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1",
@@ -20,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier --write \"src/**/*.{js,jsx,json,css,md}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,json,css,md}\""
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +42,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  },
+  "performance": {
+    "hints": {
+      "preload-webpack-plugin/preload": "off"
+    },
+    "maxAssetSize": 1000000,
+    "maxEntrypointSize": 1000000
   }
 }

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 /*
   font-family: "Lato", sans-serif;
@@ -21,7 +21,7 @@
 }
 
 * {
-  font-family: "Noto Sans", sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: normal;
   font-size: 1rem;
   user-select: none;
@@ -44,12 +44,12 @@ html {
 
 h1 {
   font-size: xxx-large;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 h2 {
   font-size: x-large;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 h3 {
@@ -94,7 +94,7 @@ button:hover {
 }
 
 .navbar * {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: bolder;
   font-size: 1rem;
 }
@@ -144,7 +144,7 @@ button:hover {
   font-size: 10rem;
   padding: 0px;
   margin: 0px;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-weight: bolder;
   text-shadow: 0px 0px 10px var(--tr);
 }
@@ -155,7 +155,7 @@ button:hover {
   padding: 0px;
   margin: 0px;
   font-style: default;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: normal;
 }
 
@@ -195,7 +195,7 @@ button:hover {
   height: 70px;
   width: 70px;
   font-size: auto;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: bolder;
 }
 
@@ -253,7 +253,7 @@ button:hover {
 }
 
 .menu-container {
-  max-width: 700px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -487,8 +487,8 @@ button:hover {
   }
 }
 
-.menu-item, 
-.navbar-button, 
+.menu-item,
+.navbar-button,
 .mobile-menu,
 .menu-container,
 .contact-card {
@@ -500,7 +500,9 @@ button:hover {
 
 .navbar-button:hover,
 button:hover {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .menu-item-image {

@@ -4,4 +4,4 @@ export const optimizedImage = (url, width = 400) => {
     return `${url}?w=${width}&q=80&auto=format,compress`;
   }
   return url;
-}; 
+};
