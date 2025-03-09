@@ -32,17 +32,19 @@ export const Features = () => {
         justifyItems: 'center',
       }}
     >
+      <hr />
       <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }}
+        initial={{ opacity: 0, x: 40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         What Makes Us Special
       </motion.h1>
-
+      <hr />
       <div
         style={{
+          marginTop: '20px',
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'center',
@@ -66,25 +68,8 @@ export const Features = () => {
               ease: 'easeOut',
             }}
           >
-            <h3
-              style={{
-                marginBottom: '15px',
-                fontSize: '2rem',
-                color: 'var(--fg)',
-                fontFamily: "'Bebas Neue', sans-serif",
-              }}
-            >
-              {feature.title}
-            </h3>
-            <p
-              style={{
-                fontSize: '1rem',
-                lineHeight: '1.5',
-                fontFamily: "'Lato', sans-serif",
-              }}
-            >
-              {feature.description}
-            </p>
+            <h3 className="menu-item-title">{feature.title}</h3>
+            <h3 className="menu-item-description">{feature.description}</h3>
           </motion.div>
         ))}
       </div>
@@ -96,9 +81,9 @@ const About = () => {
   return (
     <div className="main-content" id="about">
       <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }}
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.5 }}
         style={{
           maxWidth: '800px',

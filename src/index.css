@@ -146,7 +146,7 @@ button:hover {
   margin: 0px;
   font-family: 'Bebas Neue', sans-serif;
   font-weight: bolder;
-  text-shadow: 0px 0px 10px var(--tr);
+  text-shadow: 0px 0px 30px var(--tr);
 }
 
 .main-content p {
@@ -280,6 +280,7 @@ button:hover {
   justify-content: center;
   width: 100%;
   display: grid;
+  margin-top: 20px;
   grid-template-columns: calc(50% - 20px) calc(50% - 20px);
   gap: 40px;
 }
@@ -291,7 +292,7 @@ button:hover {
   overflow: hidden;
   height: 100%;
   transition: transform 0.3s ease;
-  width: 100%;
+  width: 340px;
   transform: translateZ(0);
   will-change: transform, opacity;
   backface-visibility: hidden;
@@ -311,17 +312,16 @@ button:hover {
 }
 
 .menu-item-title {
+  font-family: 'Bebas Neue', sans-serif;
   color: var(--fg);
-  font-size: 1rem;
+  font-size: 2rem;
   padding: 20px 20px 10px;
-  font-weight: bolder;
   margin: 0;
 }
 
 .menu-item-description {
   color: var(--fg);
   font-size: small;
-  font-style: italic;
   padding: 0px 20px 20px 20px;
   margin: 0;
   line-height: 1.5;
@@ -360,6 +360,9 @@ button:hover {
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  min-width: 320px;
+  width: 90%;
+  max-width: 720px;
 }
 
 .contacts-title {
@@ -377,12 +380,15 @@ button:hover {
 }
 
 .contact-card {
-  padding: 5px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   width: 100%;
+  zoom: 0.8;
+  background-color: var(--tr);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
   transition: transform 0.2s ease;
   transform: translateZ(0);
   will-change: transform, opacity;
@@ -395,7 +401,7 @@ button:hover {
 
 .contact-icon {
   font-size: 2rem;
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .contact-title {
@@ -444,6 +450,15 @@ button:hover {
   text-align: center;
   justify-content: center;
   opacity: 0;
+}
+
+hr {
+  color: var(--fg);
+  width: 70%;
+  height: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--fg);
 }
 
 @media (max-width: 768px) {

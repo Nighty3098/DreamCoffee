@@ -6,7 +6,7 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 const MenuItem = ({ item }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{
@@ -32,7 +32,6 @@ const Menu = () => {
   const [showAll, setShowAll] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [animationParent] = useAutoAnimate();
-  const menuRef = useRef(null);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -53,25 +52,6 @@ const Menu = () => {
       window.removeEventListener('resize', handleResize);
       clearTimeout(timeoutId);
     };
-  }, []);
-
-  useEffect(() => {
-    // Когда компонент загружается в область видимости, добавляем класс для анимации
-    if (menuRef.current) {
-      const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('menu-animated');
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-
-      observer.observe(menuRef.current);
-      return () => observer.disconnect();
-    }
   }, []);
 
   const menuItems = {
@@ -159,7 +139,9 @@ const Menu = () => {
         }}
         className="menu-container"
       >
+        <hr />
         <motion.h1 layout>MENU</motion.h1>
+        <hr />
         <motion.div className="menu-items-grid" layout>
           {visibleItems.map((item, index) => (
             <MenuItem key={index} item={item} />

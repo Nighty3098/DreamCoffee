@@ -73,7 +73,7 @@ const Contacts = () => {
         transition={{ duration: 0.5 }}
         className="contacts-container"
       >
-        <motion.h1 className="contacts-title">CONTACTS</motion.h1>
+        <hr />
         <Map />
         <ContactInfo />
       </motion.div>
