@@ -465,12 +465,8 @@ button:hover {
     font-size: 0.9rem;
   }
 
-  .navbar-title {
-    display: none;
-  }
-
   .navbar {
-    justify-content: right;
+    justify-content: space-between;
   }
 
   .desktop-menu {

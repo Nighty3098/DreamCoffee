@@ -3,7 +3,7 @@ import NavBar from './components/navbar';
 import Welcome from './components/welcome';
 import About from './components/about';
 import Contacts from './components/contacts';
-import Menu from './components/menu';
+import Menu from './components/products';
 import { PerformanceMonitor } from './utils/PerformanceMonitor';
 import { LazyMotion, domAnimation } from 'framer-motion';
 

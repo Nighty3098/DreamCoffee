@@ -11,9 +11,9 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navButtons = [
-  { icon: faHouse, text: 'Home', link: '#welcome' },
-  { icon: faQuestion, text: 'About', link: '#about' },
-  { icon: faMessage, text: 'Contacts', link: '#contacts' },
+  { icon: '', text: 'Home', link: '#welcome' },
+  { icon: '', text: 'About', link: '#about' },
+  { icon: '', text: 'Contacts', link: '#contacts' },
 ];
 
 const NavButton = ({ icon, text, link, index }) => (
