@@ -11,15 +11,17 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navButtons = [
-  { icon: '', text: 'Home', link: '#welcome' },
-  { icon: '', text: 'About', link: '#about' },
-  { icon: '', text: 'Contacts', link: '#contacts' },
+  { icon: faHouse, text: 'Home', link: '#welcome' },
+  { icon: faQuestion, text: 'About', link: '#about' },
+  { icon: faMessage, text: 'Contacts', link: '#contacts' },
 ];
 
 const NavButton = ({ icon, text, link, index }) => (
   <motion.a
     href={link}
     className="navbar-button"
+    initial={{ opacity: 0, x: 100 }}
+    animate={{ opacity: 1, x: 0 }}
     transition={{
       duration: 0.2,
       delay: index * 0.05,
@@ -41,41 +43,56 @@ const NavBar = () => {
   const menuVariants = {
     closed: {
       x: '100%',
+      opacity: 0,
       transition: {
-        type: 'tween',
-        duration: 0.3,
-        ease: [0.25, 0.1, 0.25, 1.0],
+        type: 'spring',
+        stiffness: 300,
+        damping: 30,
       },
     },
     open: {
       x: 0,
+      opacity: 1,
       transition: {
-        type: 'tween',
-        duration: 0.3,
-        ease: [0.25, 0.1, 0.25, 1.0],
-        staggerChildren: 0.05,
-        delayChildren: 0.05,
+        type: 'spring',
+        stiffness: 300,
+        damping: 30,
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
       },
     },
   };
 
   const buttonVariants = {
-    hover: { scale: 1.05 },
-    tap: { scale: 0.95 },
+    hover: { scale: 1.05, rotate: 5 },
+    tap: { scale: 0.95, rotate: -5 },
   };
 
   return (
-    <motion.nav className="navbar" initial={{ opacity: 0, y: -60 }} animate={{ opacity: 1, y: 0 }}>
-      <div className="navbar-title">
+    <motion.nav
+      className="navbar"
+      initial={{ opacity: 0, x: 100 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{
+        duration: 0.6,
+        ease: 'easeOut',
+      }}
+    >
+      <motion.div className="navbar-title" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
         <FontAwesomeIcon icon={faMugHot} />
         <p>Dream Coffee</p>
-      </div>
+      </motion.div>
 
-      <div className="navbar-buttons desktop-menu">
+      <motion.div
+        className="navbar-buttons desktop-menu"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3 }}
+      >
         {navButtons.map((button, index) => (
           <NavButton key={index} icon={button.icon} text={button.text} link={button.link} />
         ))}
-      </div>
+      </motion.div>
 
       <div className="mobile-menu-container">
         <motion.button
