@@ -95,8 +95,8 @@ button:hover {
 
 .navbar * {
   font-family: 'Lato', sans-serif;
-  font-weight: bolder;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 0.8rem;
 }
 
 .navbar-button {
@@ -460,6 +460,17 @@ hr {
   border-radius: 5px;
   border: none;
   background-color: var(--fg);
+}
+
+.small-contacts {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 20px;
+}
+
+.small-contact-card .icon {
+  font-size: 1.5rem;
 }
 
 @media (min-width: 1500px) {

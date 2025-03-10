@@ -1,7 +1,39 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { faMugHot, faCoffeeBean, faCup } from '@fortawesome/free-solid-svg-icons';
+import { faMugHot, faCup } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTelegram, faDiscord, faRedditAlien } from '@fortawesome/free-brands-svg-icons';
+
+const SmallContacts = () => {
+  return (
+    <motion.div
+      className="small-contacts"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.5,
+        delay: 0.6,
+        type: 'tween',
+        ease: [0.25, 0.1, 0.25, 1.0],
+      }}
+    >
+      <motion.div
+        className="small-contact-card"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <FontAwesomeIcon className="icon" icon={faTelegram} />
+      </motion.div>
+      <motion.div
+        className="small-contact-card"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <FontAwesomeIcon className="icon" icon={faDiscord} />
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const Welcome = () => {
   return (
@@ -56,6 +88,7 @@ const Welcome = () => {
         >
           Coffee that makes every moment special
         </motion.p>
+        <SmallContacts />
       </div>
     </div>
   );
