@@ -21,7 +21,6 @@ const ContactInfo = () => {
     <div className="contact-info-container">
       {contacts.map((contact, index) => (
         <motion.div
-          key={index}
           className="contact-card"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +40,7 @@ const ContactInfo = () => {
   );
 };
 
-const Map = () => {
+const MapWidget = () => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -73,7 +72,7 @@ const Contacts = () => {
         transition={{ duration: 0.5 }}
         className="contacts-container"
       >
-        <Map />
+        <MapWidget />
         <ContactInfo />
       </motion.div>
     </div>

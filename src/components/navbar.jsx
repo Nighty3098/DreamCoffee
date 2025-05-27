@@ -90,7 +90,7 @@ const NavBar = () => {
         transition={{ delay: 0.3 }}
       >
         {navButtons.map((button, index) => (
-          <NavButton key={index} icon={button.icon} text={button.text} link={button.link} />
+          <NavButton icon={button.icon} text={button.text} link={button.link} />
         ))}
       </motion.div>
 
@@ -127,13 +127,7 @@ const NavBar = () => {
               </motion.button>
 
               {navButtons.map((button, index) => (
-                <NavButton
-                  key={index}
-                  icon={button.icon}
-                  text={button.text}
-                  link={button.link}
-                  index={index}
-                />
+                <NavButton icon={button.icon} text={button.text} link={button.link} index={index} />
               ))}
             </motion.div>
           )}

@@ -55,7 +55,6 @@ export const Features = () => {
         {features.map((feature, index) => (
           <motion.div
             className="feature-card"
-            key={index}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{

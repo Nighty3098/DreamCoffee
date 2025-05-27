@@ -1,8 +1,6 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { faMugHot, faCup } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTelegram, faDiscord, faRedditAlien } from '@fortawesome/free-brands-svg-icons';
+import { faTelegram, faDiscord } from '@fortawesome/free-brands-svg-icons';
 
 const SmallContacts = () => {
   return (
@@ -43,7 +41,6 @@ const Welcome = () => {
       style={{
         height: '100vh',
         width: '100vw',
-        background: 'var(--tr)',
       }}
     >
       <div className="main-content" id="welcome" style={{ height: '100%', width: '100%' }}>

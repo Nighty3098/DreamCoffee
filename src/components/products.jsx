@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { optimizedImage } from '../utils/imageOptimization';
-import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 const MenuItem = ({ item }) => {
   return (
@@ -31,7 +30,6 @@ const MenuItem = ({ item }) => {
 const Menu = () => {
   const [showAll, setShowAll] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [animationParent] = useAutoAnimate();
 
   useEffect(() => {
     const checkMobile = () => {
@@ -144,7 +142,7 @@ const Menu = () => {
         <hr />
         <motion.div className="menu-items-grid" layout>
           {visibleItems.map((item, index) => (
-            <MenuItem key={index} item={item} />
+            <MenuItem item={item} />
           ))}
         </motion.div>
 
@@ -152,7 +150,6 @@ const Menu = () => {
           <AnimatePresence mode="popLayout">
             {!showAll ? (
               <motion.button
-                key="show-more"
                 className="show-more-button"
                 onClick={() => setShowAll(true)}
                 initial={{ opacity: 0, y: 50 }}
@@ -165,7 +162,6 @@ const Menu = () => {
               </motion.button>
             ) : (
               <motion.button
-                key="show-less"
                 className="show-less-button"
                 onClick={() => setShowAll(false)}
                 initial={{ opacity: 0 }}

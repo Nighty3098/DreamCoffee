@@ -1,18 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-/*
-  font-family: "Lato", sans-serif;
-  font-family: "Noto Sans", sans-serif;
-  font-family: "Bebas Neue", sans-serif;
-*/
-
-:root-dark {
-  --bg: #3d251e;
-  --fg: #d8cbc4;
-  --tr: hsla(17, 47%, 30%, 0.4);
-  --accent: #a08679;
-}
-
 :root {
   --bg: #d8cbc4;
   --fg: #3d251e;
@@ -104,7 +91,6 @@ button:hover {
   color: var(--fg);
   border: none;
   margin: 0px;
-  padding: 0px;
   border-radius: 10px;
   padding: 10px 20px;
   text-transform: uppercase;
@@ -449,7 +435,6 @@ button:hover {
   align-items: center;
   align-content: center;
   text-align: center;
-  justify-content: center;
   opacity: 0;
 }
 
@@ -532,10 +517,4 @@ button:hover {
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
-}
-
-.menu-item-image {
-  will-change: transform;
-  transform: translateZ(0);
-  transition: opacity 0.3s ease;
 }
